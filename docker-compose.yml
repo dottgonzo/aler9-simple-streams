@@ -1,0 +1,38 @@
+version: '2.4'
+
+services:
+
+  test:
+    image: registry.gitlab.com/livemachine/fakeh264flux:latest
+    network_mode: host
+    environment:
+      - RTSPURI=rtsp://localhost:1935/test
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+
+
+  rtsp:
+    image: aler9/rtsp-simple-server
+    network_mode: host
+    volumes:
+      - ./rtsp-simple-server.yml:/rtsp-simple-server.yml:ro
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+
+
+  webrtc:
+    image: registry.gitlab.com/livemachine/rtsptowebrtc:latest
+    network_mode: host
+    volumes:
+      - ./rtsp-simple-server.yml:/rtsp-simple-server.yml:ro
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
