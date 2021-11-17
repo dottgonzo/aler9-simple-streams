@@ -6,7 +6,7 @@ services:
     image: registry.gitlab.com/livemachine/fakeh264flux:latest
     network_mode: host
     environment:
-      - RTSPURI=rtsp://localhost:1935/test
+      - RTSPURI=rtsp://localhost:8554/test
     restart: always
     logging:
       driver: json-file

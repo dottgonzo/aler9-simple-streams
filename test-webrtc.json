@@ -5,7 +5,7 @@
     "streams": {
       "demo1": {
         "on_demand" : false,
-        "url": "rtsp://localhost:8554/test"
+        "url": "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4"
       }
     }
   }
