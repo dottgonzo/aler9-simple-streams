@@ -15,7 +15,7 @@ services:
 
 
   rtsp:
-    image: aler9/rtsp-simple-server
+    image: dottgonzo/rtsp-simple-server:master
     network_mode: host
     volumes:
       - ./rtsp-simple-server.yml:/rtsp-simple-server.yml:ro
@@ -25,14 +25,3 @@ services:
       options:
         max-size: 50m
 
-
-  webrtc:
-    image: registry.gitlab.com/livemachine/rtsptowebrtc:latest
-    network_mode: host
-    volumes:
-      - ./rtsp-simple-server.yml:/rtsp-simple-server.yml:ro
-    restart: always
-    logging:
-      driver: json-file
-      options:
-        max-size: 50m
